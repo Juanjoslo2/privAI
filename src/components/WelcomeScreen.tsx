@@ -2,6 +2,7 @@ import { Shield, Lock, Eye, Smartphone, Camera, Mic, MapPin, AlertCircle, CheckC
 import { Button } from './ui/button';
 import { usePermissions } from '../hooks/usePermissions';
 import { Alert, AlertDescription } from './ui/alert';
+import { PrototypeDisclaimer } from './PrototypeDisclaimer';
 
 interface WelcomeScreenProps {
   onStartScan: () => void;
@@ -117,6 +118,9 @@ export function WelcomeScreen({ onStartScan }: WelcomeScreenProps) {
             }
           </p>
         </div>
+
+        {/* Disclaimer Legal */}
+        <PrototypeDisclaimer />
       </div>
     </div>
   );

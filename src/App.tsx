@@ -2,6 +2,7 @@ import { WelcomeScreen } from './components/WelcomeScreen';
 import { ScanningScreen } from './components/ScanningScreen';
 import { ResultsScreen } from './components/ResultsScreen';
 import { ConfirmationScreen } from './components/ConfirmationScreen';
+import { LegalFooter } from './components/LegalFooter';
 import { useScreenManager } from './hooks/useScreenManager';
 
 export default function App() {
@@ -14,11 +15,14 @@ export default function App() {
   } = useScreenManager();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
-      {currentScreen === 'welcome' && <WelcomeScreen onStartScan={handleStartScan} />}
-      {currentScreen === 'scanning' && <ScanningScreen onScanComplete={handleScanComplete} />}
-      {currentScreen === 'results' && <ResultsScreen onConfigure={handleConfigureProtection} />}
-      {currentScreen === 'confirmation' && <ConfirmationScreen onBackToWelcome={handleBackToWelcome} />}
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50 flex flex-col">
+      <div className="flex-1">
+        {currentScreen === 'welcome' && <WelcomeScreen onStartScan={handleStartScan} />}
+        {currentScreen === 'scanning' && <ScanningScreen onScanComplete={handleScanComplete} />}
+        {currentScreen === 'results' && <ResultsScreen onConfigure={handleConfigureProtection} />}
+        {currentScreen === 'confirmation' && <ConfirmationScreen onBackToWelcome={handleBackToWelcome} />}
+      </div>
+      <LegalFooter />
     </div>
   );
 }
